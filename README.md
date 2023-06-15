@@ -1,2 +1,2 @@
 # LCU Tool
- Tool to automatically buy 20 champions in LoL.
+ Tool to automatically buy 450 BE champions in LoL.
