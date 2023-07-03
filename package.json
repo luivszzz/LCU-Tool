@@ -1,23 +1,25 @@
 {
-  "name": "master-electron",
+  "name": "lcu_tool",
   "version": "1.0.0",
-  "description": "Master Electron Course Code",
+  "description": "Super League of Legends Client Tool.",
   "main": "main.js",
   "scripts": {
     "start": "electron .",
-    "watch": "nodemon --exec electron .",
-    "reset": "git reset --hard"
+    "watch": "nodemon --exec electron ."
   },
-  "repository": "https://github.com/stackacademytv/master-electron",
+  "repository": "https://github.com/MonteiroLuis/LCU-Tool",
   "keywords": [
-    "Electron",
-    "Master Electron",
-    "demo"
+    "LCU",
+    "League Client",
+    "Electron"
   ],
-  "author": "GitHub, Stackacademytv",
-  "license": "CC0-1.0",
+  "author": "GitHub, MonteiroLuis",
+  "license": "MIT",
   "devDependencies": {
     "electron": "^9.0.0",
     "nodemon": "^2.0.22"
+  },
+  "dependencies": {
+    "lcu-connector": "^2.1.3"
   }
 }

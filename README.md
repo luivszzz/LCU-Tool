@@ -1,7 +1,8 @@
-# Master Electron - Course Code
+# LCU Tool - Electron
 
-Demo project modified from: https://github.com/electron/electron-quick-start
+This project intends to help people who use the League Client to make their lives easier and to facilitate boring tasks such as buying the first 20 initial champions to be able to play ranked matches in a fresh account!
 
-*Modified for improved screen real estate and for the sake of consistent versioning.*
+*This project is in its initial stage, for now it can only automatically connect to LeagueClient without errors (and buy Yuumi! =D).*
 
-![Master Electron](https://raw.githubusercontent.com/stackacademytv/master-electron/master/splash.png)
+
+Initial project based on: https://github.com/electron/electron-quick-start

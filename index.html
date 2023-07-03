@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <!-- !! IMPORTANT !! -->
     <!-- Content-Security-Policy no longer required. Will show warning in devtools. Can be ignored -->
-    <!-- <meta http-equiv="Content-Security-Policy" content="script-src 'self' 'unsafe-inline'"> -->
+    <!-- <meta http-equiv="Content-Security-Policy" content="script-src 'self' 'unsafe-inline'">-->
     <title>LCU Tool</title>
     <style>
       html { font-family: sans-serif; background: #2B2E3B; color: #9FEAF9; }
@@ -13,13 +13,16 @@
   <body>
 
     <h1>Hello, <span id="username">guest</span>!</h1>
-    <p>This is a super app designed and produced by MonteiroLuis!</p>
       <div>
         <img width="100px" id="imgtst"><br>
         <span id="summData">...</span>
       </div>
-    <p id="connectStatus">Waiting for League Client...</p>
-    <script>
+      <button id="buyYuumi">Buy Yuumi</button>
+
+    <p style="position: absolute; bottom: 0;">Status: <span id="connectStatus">Waiting for League Client...</span> Click <a href="#" id="testButton">HERE</a> to see what's happening!<br>
+      This is a super app designed and produced by <a href="https://github.com/MonteiroLuis">MonteiroLuis</a>!</p>
+    
+    <script defer>
       // You can also require other files to run in this process
       require('./renderer.js')
     </script>
