@@ -1,0 +1,24 @@
+
+body { background-color: #212529; color: #adb5bd}
+
+.col{
+    padding-top: .75rem;
+    padding-bottom: .75rem;
+    background-color: antiquewhite;
+    border: 1px solid #9974bb6b;
+    color: rgb(59, 52, 52);
+}
+
+
+
+  /* Style page content */
+  .main {
+    margin-left: 280px; /* Same as the width of the sidebar */
+    padding: 15px 10px;
+  }
+  
+  /* On smaller screens, where height is less than 450px, change the style of the sidebar (less padding and a smaller font size) */
+  @media screen and (max-height: 450px) {
+    .sidenav {padding-top: 15px;}
+    .sidenav a {font-size: 18px;}
+  }
