@@ -1,5 +1,7 @@
 // Modules
 const {app, BrowserWindow, net} = require('electron')
+const {ipcMain} = require('electron');
+const {shell} = require('electron');
 
 // Keep a global reference of the window object, if you don't, the window will
 // be closed automatically when the JavaScript object is garbage collected.
@@ -11,7 +13,7 @@ app.commandLine.appendSwitch('ignore-certificate-errors')
 function createWindow () {
 
   mainWindow = new BrowserWindow({
-    width: 800, height: 600,
+    width: 1280, height: 720,
     webPreferences: {
       // --- !! IMPORTANT !! ---
       // Disable 'contextIsolation' to allow 'nodeIntegration'
@@ -21,7 +23,9 @@ function createWindow () {
     },
     resizable: false,
     fullscreenable: false,
-    title: 'LCU Tool'
+    title: 'LCU Tool',
+    //frame: false
+    
   })
 // Remove default menu
     mainWindow.setMenu(null);
@@ -31,8 +35,7 @@ function createWindow () {
     mainWindow.show();
 });
   // Open DevTools - Remove for PRODUCTION!
-  //mainWindow.webContents.openDevTools();
-
+  mainWindow.webContents.openDevTools()
   // Listen for window being closed
   mainWindow.on('closed',  () => {
     mainWindow = null
@@ -40,7 +43,13 @@ function createWindow () {
 }
 
 // Electron `app` is ready
-app.on('ready', createWindow)
+app.on('ready', ()=>{
+  createWindow()
+  ipcMain.on('loadGH', (event, arg) => {
+    shell.openExternal(arg);
+  });
+})
+
 
 // Quit when all windows are closed - (Not macOS - Darwin)
 app.on('window-all-closed', () => {

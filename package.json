@@ -20,6 +20,7 @@
     "nodemon": "^2.0.22"
   },
   "dependencies": {
+    "@vue/cli": "^5.0.8",
     "lcu-connector": "^2.1.3"
   }
 }
