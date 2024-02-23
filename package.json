@@ -7,13 +7,13 @@
     "start": "electron .",
     "watch": "nodemon --exec electron ."
   },
-  "repository": "https://github.com/MonteiroLuis/LCU-Tool",
+  "repository": "https://github.com/luivszzz/LCU-Tool",
   "keywords": [
     "LCU",
     "League Client",
     "Electron"
   ],
-  "author": "GitHub, MonteiroLuis",
+  "author": "GitHub, luivszzz",
   "license": "MIT",
   "devDependencies": {
     "electron": "^9.0.0",

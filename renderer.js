@@ -189,32 +189,36 @@ const getChamps = async()=>{
         }
         return 0;
     });
-    console.log(champs)
     currentUserData['champions'].push(champs)
     renderUserData()
 }
 
 const renderUserData = async()=>{
     const locAndPatch = await getLocale()
-    console.log(currentUserData)
-    function myFunction(champData) {
-        console.log(champData['alias'])
-        const figure = document.createElement("figure")
-        const node = document.createElement("img");
-        node.setAttribute('src', `https://ddragon.leagueoflegends.com/cdn/${locAndPatch.lastpatch}/img/champion/${champData['name']}.png`)  
-        node.setAttribute('alt', champData['alias'])  
-        node.setAttribute('width', '80px')  
-        figure.appendChild(node)
-        document.getElementById("buyChamps").appendChild(node);
-    }
-    for(var i = 0; i < currentUserData['champions'][0].length; i++){
-        champData = currentUserData['champions'][0][i]
-        myFunction(champData)
+    console.log(currentUserData.champions[0])
+    currentUserData.champions = currentUserData.champions[0].filter(obj => {
+        return obj.owned === false;
+    });
+    console.log(currentUserData);
+
+    for(var i = 0; i < currentUserData.champions.length; i++){
+        champData = currentUserData.champions[i];  
+        // const node = document.createElement("img");
+        const node = document.createElement("div");
+        // node.setAttribute('width', '80px');
+        // node.setAttribute('src', `https://ddragon.leagueoflegends.com/cdn/${locAndPatch.lastpatch}/img/champion/${champData['name']}.png`);
+        // node.setAttribute('alt', champData['alias']);
+        // document.getElementById("buyChamps").appendChild(node);
+        document.getElementById("buyChamps").insertAdjacentHTML('beforeend', `
+        ${champData['alias']}
+        <img src="https://ddragon.leagueoflegends.com/cdn/${locAndPatch.lastpatch}/img/champion/${champData['name']}.png">
+        <br>
+        `);
     }
 }
 
 const getLocale = async()=>{
-    locale = await doRequests('GET', '/riotclient/get_region_locale')
+    locale = await doRequests('GET', '/riotclient/region-locale')
     const data = await fetch('https://ddragon.leagueoflegends.com/api/versions.json')
     res = await data.json()
     response = {
