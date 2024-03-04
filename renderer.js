@@ -5,10 +5,14 @@ const LCUConnector = require('lcu-connector');
 
 const connector = new LCUConnector();
 
+const _ = require('lodash');
+
 let username;
 let password;
 let address;
 let port;
+
+
 
 currentUserData = {
     champions: []
@@ -201,26 +205,12 @@ const getChamps = async()=>{
 
 const renderUserData = async()=>{
     const locAndPatch = await getLocale();
-    console.log(currentUserData.champions[0]);
-    currentUserData.champions = currentUserData.champions[0].filter(obj => {
-        return obj.owned === false;
-    });
-    console.log(currentUserData);
-
-    for(var i = 0; i < currentUserData.champions.length; i++){
-        champData = currentUserData.champions[i];  
-        // const node = document.createElement("img");
-        const node = document.createElement("div");
-        // node.setAttribute('width', '80px');
-        // node.setAttribute('src', `https://ddragon.leagueoflegends.com/cdn/${locAndPatch.lastpatch}/img/champion/${champData['name']}.png`);
-        // node.setAttribute('alt', champData['alias']);
-        // document.getElementById("buyChamps").appendChild(node);
-        document.getElementById("buyChamps").insertAdjacentHTML('beforeend', `
-        ${champData['alias']}
-        <img src="https://ddragon.leagueoflegends.com/cdn/${locAndPatch.lastpatch}/img/champion/${champData['name']}.png">
-        <br>
-        `);
-    };
+    //`https://ddragon.leagueoflegends.com/cdn/${locAndPatch.lastpatch}/img/champion/${champData['name']}.png`);
+    document.getElementById("summData").innerHTML =`
+    <h2>teste</h2>
+    <p>Valor de compra de todos os campeões restantes: ${_.sum(_.map(_.pickBy(currentUserData.champions[0], (value) => value.owned  === false),"price"))} EA;</p>
+    <p>Valor de compra de todos os campeões restantes por espólios (60% do valor): ${_.sum(_.map(_.pickBy(currentUserData.champions[0], (value) => value.owned  === false),"price"))*0.6} EA.</p>
+    `;
 ;}
 
 const getLocale = async()=>{
@@ -240,15 +230,15 @@ document.getElementById('connectStatus').addEventListener('click', ()=>{
 });
 
 
-document.getElementById('buyYuumi').addEventListener('click', ()=>{
-    buyChamps();
-});
-document.getElementById('btnBuyChamps').addEventListener('click', ()=>{
-    buyChampsDiv = document.getElementById('buyChamps');
-    if(buyChampsDiv.style.display == 'none'){
-        buyChampsDiv.style.display = 'inline';
-    }
-    else{
-        buyChampsDiv.style.display = 'none';
-    };
-});
+// document.getElementById('buyYuumi').addEventListener('click', ()=>{
+//     buyChamps();
+// });
+// document.getElementById('btnBuyChamps').addEventListener('click', ()=>{
+//     buyChampsDiv = document.getElementById('buyChamps');
+//     if(buyChampsDiv.style.display == 'none'){
+//         buyChampsDiv.style.display = 'inline';
+//     }
+//     else{
+//         buyChampsDiv.style.display = 'none';
+//     };
+// });
