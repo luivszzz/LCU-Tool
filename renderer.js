@@ -208,8 +208,8 @@ const renderUserData = async()=>{
     //`https://ddragon.leagueoflegends.com/cdn/${locAndPatch.lastpatch}/img/champion/${champData['name']}.png`);
     document.getElementById("summData").innerHTML =`
     <h2>teste</h2>
-    <p>Valor de compra de todos os campeões restantes: ${_.sum(_.map(_.pickBy(currentUserData.champions[0], (value) => value.owned  === false),"price"))} EA;</p>
-    <p>Valor de compra de todos os campeões restantes por espólios (60% do valor): ${_.sum(_.map(_.pickBy(currentUserData.champions[0], (value) => value.owned  === false),"price"))*0.6} EA.</p>
+    <p>purchase value of all remaining champions: ${_.sum(_.map(_.pickBy(currentUserData.champions[0], (value) => value.owned  === false),"price"))} BE;</p>
+    <p>purchase value of all remaining champions using loot (60% of value): ${_.sum(_.map(_.pickBy(currentUserData.champions[0], (value) => value.owned  === false),"price"))*0.6} BE.</p>
     `;
 ;}
 
